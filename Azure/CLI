@@ -1,0 +1,15 @@
+az account list --output table
+
+az group list --output table
+
+az resource list \
+    --resource-group learn-4d620a1a-e510-42c0-a639-02329154b522 \
+    --resource-type Microsoft.Web/sites
+
+az webapp stop \
+    --resource-group learn-4d620a1a-e510-42c0-a639-02329154b522 \
+    --name <web app name> //"FirstExerciseApp"
+
+az webapp start \
+    --resource-group learn-4d620a1a-e510-42c0-a639-02329154b522 \
+    --name <web app name>
