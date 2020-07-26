@@ -1,0 +1,23 @@
+source my_env/bin/activate
+deactivate
+
+test install
+python -m spinup.run ppo --hid "[32,32]" --env LunarLander-v2 --exp_name installtest --gamma 0.999
+video
+python -m spinup.run test_policy data/installtest/installtest_s0
+plot
+python -m spinup.run plot data/installtest/installtest_s0
+
+test MuJoCo
+python -m spinup.run ppo --hid "[32,32]" --env Walker2d-v2 --exp_name mujocotest
+
+
+python3 -m retro.examples.interactive --game Airstriker-Genesis
+random atari
+python3 -m retro.examples.random_agent --game Airstriker-Genesis
+
+
+
+WINDOWS_EHG1OSmNYD87a_V005S8Bsg326uX0H65KS6nS205
+
+conda update -n base -c defaults conda
