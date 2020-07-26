@@ -1,0 +1,19 @@
+#Open PowerShell from your local system as an administrator
+Install-Module MsOnline #(If the module is not installed)
+Connect-Msolservice" #(use the member Global Admin and not a guest user)
+Get-MsolServicePrincipal | Remove-MsolServicePrincipal
+#https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0
+
+Uninstall-Module
+#https://docs.microsoft.com/en-us/powershell/module/powershellget/uninstall-module?view=powershell-7
+
+#create two vms on virtual network
+#from vm1
+ping vm2
+#from vm2
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+#from vm1
+ping vm2
+
+#Install Web-Server on Windows Server 2019 Datacenter virtual machine
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
